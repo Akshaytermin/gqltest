@@ -1,0 +1,9 @@
+version: "3.2"
+services:
+
+  sql-server-db:
+    image: quay.io/onet/mysql:5
+    container_name: mysql
+    env_file: .env
+    ports:
+      - "3306:3306"

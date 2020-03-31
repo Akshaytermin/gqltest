@@ -1,0 +1,32 @@
+type Product{
+    id: Int!
+    name: String!
+    price: String!
+    ingredients: [Ingredient!]!
+}
+
+type Ingredient{
+    id: Int!
+    name: String!
+    productID: Int!
+}
+
+type Query{
+    products: [Product!]!
+}
+
+input NewProduct{
+    name: String!
+    price: String
+}
+
+input NewIngredient{
+    name: String!
+}
+
+type Mutation{
+    createProduct(input: NewProduct, ingredients: [NewIngredient]): Product!
+    updateProduct(id: Int, input: NewProduct, ingredients: [NewIngredient] = []): Product!
+    deleteProduct(id: Int): [Product!]!
+}
+
